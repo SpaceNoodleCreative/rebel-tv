@@ -30,6 +30,16 @@ main {
   padding: 10px;
   box-sizing: border-box;
 }
+@media (max-width: 900px) {
+  .grid-col-25 {
+    width: 50%;
+  }
+}
+@media (max-width: 650px) {
+  .grid-col-25 {
+    width: 100%;
+  }
+}
 
 // header
 .main-nav {
@@ -85,6 +95,12 @@ main {
 .hvr-lift:hover {
   transform: translateY(-0.5em);
 }
+.hvr-zoom {
+  transition: transform 0.5s;
+}
+.hvr-zoom:hover {
+  transform: scale(1.1, 1.1);
+}
 
 // show
 .cover {
@@ -100,6 +116,7 @@ main {
   background: mediumpurple;
   position: relative;
   padding-bottom: 56%;
+  overflow: hidden;
 }
 .thumb {
   display: block;
@@ -124,7 +141,23 @@ main {
 }
 .thumb-title {
   color: white;
+  line-height: 1.2;
 }
+.no-img-thumb {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20%;
+  display: block;
+  margin: auto;
+  transition: transform 0.5s;
+}
+.thumb-wrap:hover .no-img-thumb {
+  transform: scale(1.1, 1.1);
+}
+
 .season {
   clear: both;
   position: relative;

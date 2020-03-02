@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import data from "../show.json";
 import parse from "html-react-parser";
 import { connect } from "react-redux";
+import ducky from "../img/ducky.svg";
 // import { increment, decrement, reset } from "./actionCreators";
 
 const mapStateToProps = (state /*, ownProps*/) => {
@@ -64,11 +65,16 @@ const Show = () => {
                     to="/episode"
                   >
                     <div className="thumb-wrap">
+                      <img
+                        src={ducky}
+                        alt="no thumbnail duck"
+                        className="no-img-thumb"
+                      />
                       {item1.image && item1.image.medium && (
                         <img
                           src={item1.image.medium}
                           alt={item1.id}
-                          className="thumb"
+                          className="thumb hvr-zoom"
                         />
                       )}
                       <div className="thumb-title-wrap">
