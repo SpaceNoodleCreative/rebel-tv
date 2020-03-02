@@ -3,6 +3,9 @@ import boredImg from "../img/bored.svg";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
+  const max = 46513;
+  const nr = Math.floor(Math.random() * (max - 1) + 1);
+  console.log(nr);
   return (
     <div className="home-wrap">
       <img src={boredImg} alt="bored" className="home-icon hvr-lift" />
