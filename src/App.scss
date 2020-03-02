@@ -6,6 +6,11 @@ body {
   line-height: 1.8;
   overflow-y: scroll;
 }
+h1,
+h2,
+h3 {
+  font-weight: 200;
+}
 @media (max-width: 500px) {
   body {
     font-size: 85%;
@@ -65,6 +70,15 @@ main {
   top: 1.5em;
   width: 5.9em;
 }
+.home-bubble {
+  position: absolute;
+  right: 1em;
+  top: 3.75em;
+  background: white;
+  border-radius: 2em;
+  color: black;
+  padding: 0.5em 1em 0.3em;
+}
 @media (max-width: 600px) {
   .main-nav {
     height: 4em;
@@ -78,8 +92,8 @@ main {
     padding: 7em 2em 2em;
   }
   .home-bubble {
-    right: 2em;
-    top: 2.55em;
+    right: 0.75em;
+    top: 0.75em;
   }
 }
 
@@ -149,15 +163,6 @@ main {
   text-decoration: none;
   display: inline-block;
   font-weight: bold;
-}
-.home-bubble {
-  position: absolute;
-  right: 1em;
-  top: 3.75em;
-  background: white;
-  border-radius: 2em;
-  color: black;
-  padding: 0.5em 1em 0.3em;
 }
 
 // show

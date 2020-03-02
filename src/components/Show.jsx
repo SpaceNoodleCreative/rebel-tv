@@ -5,10 +5,10 @@ import parse from "html-react-parser";
 import { connect } from "react-redux";
 import ducky from "../img/ducky.svg";
 // import { increment, decrement, reset } from "./actionCreators";
-const mapStateToProps = (state /*, ownProps*/) => {
-  return {};
-};
-const mapDispatchToProps = {};
+// const mapStateToProps = (state /*, ownProps*/) => {
+//   return {};
+// };
+// const mapDispatchToProps = {};
 
 const Show = () => {
   const { id, name, summary, image, rating } = data;
@@ -96,4 +96,5 @@ const Show = () => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Show);
+export default Show;
+// export default connect(mapStateToProps, mapDispatchToProps)(Show);
