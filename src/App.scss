@@ -105,13 +105,17 @@ main {
 // show
 .cover {
   background: orange;
-  width: 10em;
+  width: 12em;
   max-width: 30%;
   float: left;
   margin-right: 2em;
   margin-bottom: 2em;
 }
-
+.main-title {
+  margin-top: 0;
+  margin-bottom: 0.4em;
+  line-height: 1.2;
+}
 .thumb-wrap {
   background: mediumpurple;
   position: relative;

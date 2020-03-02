@@ -32,8 +32,8 @@ function App() {
           <main>
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/show" component={Show} />
-              <Route path="/episode" component={Episode} />
+              <Route path="/:titleId" component={Show} />
+              <Route path="/:id/:episodeId" component={Episode} />
             </Switch>
           </main>
         </div>

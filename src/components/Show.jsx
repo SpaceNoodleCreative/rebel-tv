@@ -1,46 +1,51 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import data from "../show.json";
 import parse from "html-react-parser";
 import { connect } from "react-redux";
 import ducky from "../img/ducky.svg";
 // import { increment, decrement, reset } from "./actionCreators";
-
 const mapStateToProps = (state /*, ownProps*/) => {
-  return {
-    counter: state.counter
-  };
+  return {};
 };
-const mapDispatchToProps = {
-  /*increment, decrement, reset*/
-};
-const { id, name, summary, image } = data;
-const summaryText = parse(summary);
-const episodes = data._embedded.episodes;
-const listKeys = function(xs, key) {
-  const obj = xs.reduce(function(rv, x) {
-    (rv[x[key]] = rv[x[key]] || []).push(x);
-    return rv;
-  }, {});
-  return Object.keys(obj);
-};
-const groupByKey = function(xs, key) {
-  const obj = xs.reduce(function(rv, x) {
-    (rv[x[key]] = rv[x[key]] || []).push(x);
-    return rv;
-  }, {});
-  return Object.values(obj);
-};
-const seasons = listKeys(episodes, "season");
-const episodesBySeason = groupByKey(episodes, "season");
+const mapDispatchToProps = {};
 
 const Show = () => {
+  const { titleId } = useParams();
+  const { id, name, summary, image, rating } = data;
+  const summaryText = parse(summary);
+  const episodes = data._embedded.episodes;
+  const listKeys = function(xs, key) {
+    const obj = xs.reduce(function(rv, x) {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv;
+    }, {});
+    return Object.keys(obj);
+  };
+  const groupByKey = function(xs, key) {
+    const obj = xs.reduce(function(rv, x) {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv;
+    }, {});
+    return Object.values(obj);
+  };
+  const seasons = listKeys(episodes, "season");
+  const episodesBySeason = groupByKey(episodes, "season");
+
   return (
     <React.Fragment>
       <div>
         <img src={image.medium} className="cover" alt="cover" />
       </div>
-      <h1>{name}</h1>
+      <h1 className="main-title">
+        {name} | {titleId}
+      </h1>
+      <div>
+        <span role="img" aria-label="star">
+          ⭐
+        </span>{" "}
+        {rating.average}
+      </div>
       {summaryText}
       <section>
         <div className="cat-title-wrap">
@@ -60,10 +65,7 @@ const Show = () => {
             <div className="float-grid">
               {item.map(item1 => (
                 <div key={item1.id} className="grid-col-25">
-                  <Link
-                    // to={`/${id}/episode/s${item1.season}e${item1.number}`}
-                    to="/episode"
-                  >
+                  <Link to={`/${id}/s${item1.season}e${item1.number}`}>
                     <div className="thumb-wrap">
                       <img
                         src={ducky}

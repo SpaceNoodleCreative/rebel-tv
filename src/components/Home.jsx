@@ -7,7 +7,7 @@ export const Home = () => {
     <div className="home-wrap">
       <img src={boredImg} alt="bored" className="home-icon hvr-lift" />
       <h1>Bored?</h1>
-      <Link to="/show" className="home-btn">
+      <Link to="/6771" className="home-btn">
         Find something to watch
       </Link>
     </div>
