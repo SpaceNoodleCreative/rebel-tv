@@ -18,32 +18,51 @@ nav {
 
 .logo {
   position: absolute;
-  left: 1.5em;
-  top: 1em;
+  left: 3em;
+  top: 1.5em;
   width: 5.9em;
 }
 
-section {
+section,
+.clear {
   clear: both;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .logo:hover {
-    animation: App-logo-spin 0.5s;
+@keyframes hvr-buzz {
+  50% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  100% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
   }
 }
+.hvr-buzz {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-buzz:hover,
+.hvr-buzz:focus,
+.hvr-buzz:active {
+  animation-name: hvr-buzz;
+  animation-duration: 0.15s;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hvr-lift {
+  transition: all 0.2s;
+}
+.hvr-lift:hover {
+  transform: translateY(-0.5em);
 }
 
 main {
-  padding: 8em 3em 3em;
+  padding: 10em 3em 3em;
 }
 
 .cover {
@@ -88,12 +107,20 @@ li {
   color: white;
   padding: 1em 1.5em;
   font-weight: 100;
-  text-transform: uppercase;
   border: none;
   box-shadow: none;
   outline: none;
-  border-radius: 0.2em;
+  border-radius: 2em;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
+}
+.home-bubble {
+  position: absolute;
+  right: 1em;
+  top: 3.75em;
+  background: white;
+  border-radius: 2em;
+  color: black;
+  padding: 0.5em 1em;
 }

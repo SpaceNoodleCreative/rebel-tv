@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import rootReducer from "../reducers/rootReducer";
-import logo from "../img/thumbsUp.svg";
+import logo from "../img/tv.svg";
 import "../App.css";
 import Show from "./Show";
 import { Episode } from "./Episode";
@@ -20,8 +20,14 @@ function App() {
         <div className="App">
           <nav>
             <Link to="/">
-              <img src={logo} className="logo" alt="logo" />
+              <img src={logo} className="logo hvr-buzz" alt="logo" />
             </Link>
+            <div className="home-bubble">
+              Made with{" "}
+              <span role="img" aria-label="love">
+                ❤️️
+              </span>
+            </div>
           </nav>
           <main>
             <Switch>

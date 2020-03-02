@@ -41,7 +41,10 @@ const Show = () => {
             <ul>
               {item.map(item1 => (
                 <li key={item1.id}>
-                  <Link to={`/${id}/episode/s${item1.season}e${item1.number}`}>
+                  <Link
+                    // to={`/${id}/episode/s${item1.season}e${item1.number}`}
+                    to="/episode"
+                  >
                     {item1.image && item1.image.medium && (
                       <img
                         src={item1.image.medium}
