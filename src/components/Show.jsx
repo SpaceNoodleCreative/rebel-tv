@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import data from "../show.json";
 import parse from "html-react-parser";
 import { connect } from "react-redux";
@@ -11,9 +11,8 @@ const mapStateToProps = (state /*, ownProps*/) => {
 const mapDispatchToProps = {};
 
 const Show = () => {
-  const { titleId } = useParams();
   const { id, name, summary, image, rating } = data;
-  const summaryText = parse(summary);
+  const summaryText = summary && summary.length ? parse(summary) : null;
   const episodes = data._embedded.episodes;
   const listKeys = function(xs, key) {
     const obj = xs.reduce(function(rv, x) {
@@ -37,16 +36,14 @@ const Show = () => {
       <div>
         <img src={image.medium} className="cover" alt="cover" />
       </div>
-      <h1 className="main-title">
-        {name} | {titleId}
-      </h1>
+      <h1 className="main-title">{name}</h1>
       <div>
         <span role="img" aria-label="star">
           ⭐
         </span>{" "}
         {rating.average}
       </div>
-      {summaryText}
+      {summaryText && summaryText}
       <section>
         <div className="cat-title-wrap">
           <h2 className="cat-title">Episodes</h2>
@@ -65,7 +62,7 @@ const Show = () => {
             <div className="float-grid">
               {item.map(item1 => (
                 <div key={item1.id} className="grid-col-25">
-                  <Link to={`/${id}/s${item1.season}e${item1.number}`}>
+                  <Link to={`/${id}/${item1.id}`}>
                     <div className="thumb-wrap">
                       <img
                         src={ducky}
@@ -80,7 +77,12 @@ const Show = () => {
                         />
                       )}
                       <div className="thumb-title-wrap">
-                        <h4 className="thumb-title">{item1.name}</h4>
+                        <h4 className="thumb-title">
+                          <span className="thumb-code">
+                            S{item1.season}E{item1.number}
+                          </span>
+                          {item1.name}
+                        </h4>
                       </div>
                     </div>
                   </Link>
