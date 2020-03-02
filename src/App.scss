@@ -1,21 +1,46 @@
+// global
 body {
-  background: #333;
+  background: #222;
   color: rgba(255, 255, 255, 0.8);
+  font-family: Roboto, sans-serif;
+  line-height: 1.8;
 }
-
 a {
   color: lightseagreen;
 }
+h1 {
+  font-weight: 100;
+}
+section,
+.clear {
+  clear: both;
+}
+main {
+  padding: 10em 3em 3em;
+}
 
-nav {
+// grid
+.float-grid {
+  clear: both;
+  margin: 0 -10px;
+}
+.grid-col-25 {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+// header
+.main-nav {
   background: lightseagreen;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   height: 5em;
+  z-index: 1;
 }
-
 .logo {
   position: absolute;
   left: 3em;
@@ -23,11 +48,7 @@ nav {
   width: 5.9em;
 }
 
-section,
-.clear {
-  clear: both;
-}
-
+// effects
 @keyframes hvr-buzz {
   50% {
     -webkit-transform: translateX(3px) rotate(2deg);
@@ -54,17 +75,18 @@ section,
   animation-iteration-count: infinite;
 }
 
+.season-anchor {
+  position: absolute;
+  top: -7.75em;
+}
 .hvr-lift {
-  transition: all 0.2s;
+  transition: transform 0.2s;
 }
 .hvr-lift:hover {
   transform: translateY(-0.5em);
 }
 
-main {
-  padding: 10em 3em 3em;
-}
-
+// show
 .cover {
   background: orange;
   width: 10em;
@@ -73,26 +95,61 @@ main {
   margin-right: 2em;
   margin-bottom: 2em;
 }
-ul {
-  padding: 0;
-  margin: 0;
-}
-li {
-  display: block;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  clear: both;
+
+.thumb-wrap {
+  background: mediumpurple;
+  position: relative;
+  padding-bottom: 56%;
 }
 .thumb {
-  float: left;
-  margin: 0 2em 2em 0;
-  max-width: 50%;
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.thumb-title-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.75)
+  );
+  padding: 0 1.5em;
+  overflow: hidden;
+}
+.thumb-title {
+  color: white;
 }
 .season {
   clear: both;
+  position: relative;
+  padding-bottom: 4em;
+  margin-bottom: 2em;
+}
+.season:after {
+  clear: both;
+  display: table;
+  content: "";
+}
+.cat-title {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 1em;
+}
+.cat-nav {
+  display: inline-block;
+  vertical-align: middle;
+}
+.cat-nav a {
+  margin-right: 0.4em;
 }
 
+// home
 .home-wrap {
   text-align: center;
 }
@@ -103,10 +160,9 @@ li {
   max-width: 90%;
 }
 .home-btn {
-  background: lightseagreen;
+  background: deeppink;
   color: white;
   padding: 1em 1.5em;
-  font-weight: 100;
   border: none;
   box-shadow: none;
   outline: none;
@@ -114,6 +170,7 @@ li {
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
+  font-weight: bold;
 }
 .home-bubble {
   position: absolute;

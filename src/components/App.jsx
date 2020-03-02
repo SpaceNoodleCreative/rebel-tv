@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import rootReducer from "../reducers/rootReducer";
 import logo from "../img/tv.svg";
-import "../App.css";
+import "../App.scss";
 import Show from "./Show";
 import { Episode } from "./Episode";
 import { Home } from "./Home";
@@ -18,7 +18,7 @@ function App() {
     <Provider store={store}>
       <Router>
         <div className="App">
-          <nav>
+          <nav className="main-nav">
             <Link to="/">
               <img src={logo} className="logo hvr-buzz" alt="logo" />
             </Link>
