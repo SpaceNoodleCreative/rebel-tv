@@ -29,7 +29,7 @@ section {
 
 @media (prefers-reduced-motion: no-preference) {
   .logo:hover {
-    animation: App-logo-spin 0.3s;
+    animation: App-logo-spin 0.5s;
   }
 }
 
@@ -72,4 +72,28 @@ li {
 }
 .season {
   clear: both;
+}
+
+.home-wrap {
+  text-align: center;
+}
+.home-icon {
+  width: 20em;
+  margin: auto;
+  display: block;
+  max-width: 90%;
+}
+.home-btn {
+  background: lightseagreen;
+  color: white;
+  padding: 1em 1.5em;
+  font-weight: 100;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border-radius: 0.2em;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }

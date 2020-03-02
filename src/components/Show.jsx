@@ -2,7 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import data from "../show.json";
 import parse from "html-react-parser";
+import { connect } from "react-redux";
+// import { increment, decrement, reset } from "./actionCreators";
 
+const mapStateToProps = (state /*, ownProps*/) => {
+  return {
+    counter: state.counter
+  };
+};
+const mapDispatchToProps = {
+  /*increment, decrement, reset*/
+};
 const { id, name, summary, image } = data;
 const summaryText = parse(summary);
 const episodes = data._embedded.episodes;
@@ -15,7 +25,7 @@ var groupByKey = function(xs, key) {
 };
 const episodesBySeason = groupByKey(episodes, "season");
 
-export const Show = () => {
+const Show = () => {
   return (
     <React.Fragment>
       <div>
@@ -51,3 +61,5 @@ export const Show = () => {
     </React.Fragment>
   );
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Show);
