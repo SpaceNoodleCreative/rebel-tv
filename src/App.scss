@@ -6,11 +6,16 @@ body {
   line-height: 1.8;
   overflow-y: scroll;
 }
+@media (max-width: 500px) {
+  body {
+    font-size: 85%;
+  }
+  .main-title {
+    font-size: 1.5em;
+  }
+}
 a {
   color: lightseagreen;
-}
-h1 {
-  font-weight: 100;
 }
 section,
 .clear {
@@ -59,6 +64,23 @@ main {
   left: 3em;
   top: 1.5em;
   width: 5.9em;
+}
+@media (max-width: 600px) {
+  .main-nav {
+    height: 4em;
+  }
+  .logo {
+    width: 4.5em;
+    top: 1.5em;
+    left: 2em;
+  }
+  main {
+    padding: 7em 2em 2em;
+  }
+  .home-bubble {
+    right: 2em;
+    top: 2.55em;
+  }
 }
 
 // effects
@@ -158,6 +180,16 @@ main {
   padding-bottom: 75%;
   overflow: hidden;
 }
+@media (max-width: 900px) {
+  .thumb-wrap {
+    padding-bottom: 70%;
+  }
+}
+@media (max-width: 650px) {
+  .thumb-wrap {
+    padding-bottom: 65%;
+  }
+}
 .thumb {
   display: block;
   width: 100%;
@@ -192,7 +224,7 @@ main {
   position: absolute;
   left: 0;
   right: 0;
-  top: 2%;
+  top: -20%;
   bottom: 0;
   width: 40%;
   display: block;
