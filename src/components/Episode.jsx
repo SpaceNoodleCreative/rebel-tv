@@ -1,12 +1,12 @@
 import React from "react";
-import data from "../show.json";
 import parse from "html-react-parser";
 import { Link, useParams } from "react-router-dom";
 import ducky from "../img/ducky.svg";
+import { connect } from "react-redux";
 
-export const Episode = () => {
+const Episode = ({ requestPending, show }) => {
   const { showId, episodeId } = useParams();
-  const episodeData = data._embedded.episodes.filter(
+  const episodeData = show.episodes.filter(
     item => item.id === parseInt(episodeId)
   )[0];
   const { name, summary, image, season, number } = episodeData;
@@ -31,8 +31,9 @@ export const Episode = () => {
             </span>
           </h1>
           {summaryText && summaryText}
-          <Link to={`/${showId}`}>More episodes</Link> &nbsp;{" "}
-          <Link to="/">Back home</Link>
+          <Link to={`/yourRandomShow/${showId}`}>
+            More episodes
+          </Link> &nbsp; <a href="/">Back home</a>
         </div>
       </div>
       <div className="footer-duck">
@@ -42,3 +43,12 @@ export const Episode = () => {
     </React.Fragment>
   );
 };
+
+const mapStateToProps = state => {
+  return {
+    requestPending: state.requestPending,
+    show: state.show
+  };
+};
+
+export default connect(mapStateToProps)(Episode);
