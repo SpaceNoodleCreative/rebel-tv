@@ -1,4 +1,4 @@
-# Rebel TV
+# What2Watch
 
 This is a test assignment.
 
